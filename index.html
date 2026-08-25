@@ -49,6 +49,73 @@
     background:linear-gradient(180deg,#20180c,#171310)}
   .ex{border-bottom:1px dotted var(--gold);color:var(--gold2)}
   .chiffres{color:var(--dim);font-size:14px}
+
+  /* Demonstration : survol -> infobulle -> clic -> la carte s'ouvre et la pastille pulse.
+     Une seule horloge de 11 s, aucun JavaScript. Les couleurs sont celles du guide. */
+  .demo{position:relative;height:250px;margin:18px 0 16px;border:1px solid var(--line);
+    border-radius:8px;background:#0e0c0a;overflow:hidden;font-size:13px}
+  .d-txt{position:absolute;left:16px;top:18px;right:16px;color:#c9bda9;line-height:1.5}
+  .d-item{color:var(--gold2);border-bottom:1px dotted var(--gold)}
+  .d-tip{position:absolute;left:60px;top:52px;width:290px;padding:9px 11px;
+    background:#120f0c;border:1px solid var(--gold);border-radius:7px;
+    box-shadow:0 6px 20px rgba(0,0,0,.6);opacity:0;transform:translateY(-4px);
+    animation:d-tip 11s linear infinite}
+  .d-tip b{display:block;color:var(--gold2);font-size:14px;margin-bottom:4px}
+  .d-l{display:block;color:#cfc4b1;font-size:12px;line-height:1.45}
+  .d-dim{color:#8d8271;font-size:11px;letter-spacing:.4px}
+  .d-eff{color:#6fd6c4}
+  .d-src{display:block;margin-top:7px;padding-top:6px;border-top:1px solid #2b2318;
+    color:#8d8271;font-size:11px}
+  .d-go{color:#ff8ae0;border-bottom:1px dashed #ff8ae0;border-radius:2px;padding:1px 2px;
+    animation:d-go 11s linear infinite}
+  .d-map{position:absolute;left:0;right:0;top:26px;width:100%;height:200px;opacity:0;
+    animation:d-map 11s linear infinite}
+  .d-halo{fill:none;stroke:#ff2fd6;stroke-width:2;transform-box:fill-box;
+    transform-origin:center;opacity:0;animation:d-halo 11s linear infinite}
+  .d-cur{position:absolute;left:0;top:0;width:13px;height:19px;
+    background:linear-gradient(135deg,#fff 42%,transparent 43%);
+    clip-path:polygon(0 0,0 17px,4px 13px,7px 19px,10px 17px,7px 11px,12px 11px);
+    filter:drop-shadow(0 1px 2px rgba(0,0,0,.9));animation:d-cur 11s linear infinite}
+
+  @keyframes d-cur{
+    0%,6%   {transform:translate(230px,190px)}
+    14%,30% {transform:translate(196px,26px)}      /* sur Ghoulbane */
+    40%,46% {transform:translate(118px,196px)}     /* sur le nom du mob */
+    47%,100%{transform:translate(118px,196px);opacity:0}
+  }
+  @keyframes d-tip{
+    0%,13%  {opacity:0;transform:translateY(-4px)}
+    18%,44% {opacity:1;transform:translateY(0)}
+    47%,100%{opacity:0;transform:translateY(-4px)}
+  }
+  @keyframes d-go{
+    0%,40%  {background:transparent}
+    43%,47% {background:rgba(255,138,224,.28)}
+    50%,100%{background:transparent}
+  }
+  @keyframes d-map{
+    0%,47%  {opacity:0}
+    52%,92% {opacity:1}
+    97%,100%{opacity:0}
+  }
+  @keyframes d-halo{
+    0%,53%  {opacity:0;transform:scale(1)}
+    56%     {opacity:.95;transform:scale(1)}
+    64%     {opacity:0;transform:scale(1.7)}
+    66%     {opacity:.95;transform:scale(1)}
+    74%     {opacity:0;transform:scale(1.7)}
+    76%     {opacity:.95;transform:scale(1)}
+    84%,100%{opacity:0;transform:scale(1.7)}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .d-tip,.d-map,.d-halo,.d-cur,.d-go{animation:none}
+    .d-tip{opacity:1;transform:none}
+    .d-map,.d-cur{display:none}
+  }
+  @media(max-width:560px){
+    .demo{height:280px}
+    .d-tip{left:14px;width:calc(100% - 28px)}
+  }
   ul{margin:10px 0 0;padding-left:20px;color:#d8cdba;font-size:15px}
   li{margin:6px 0}
   b{color:var(--gold2)}
@@ -73,6 +140,39 @@
     <p>No second tab, no search, no going back. You read <span class="ex">Ghoulbane</span>,
     you see its 15/34 and its Dismiss Undead, you click <i>the froglok shin lord</i>, and you
     are looking at the room he stands in.</p>
+    <div class="demo" aria-hidden="true">
+      <div class="d-txt">…&nbsp;the shin lord drops <span class="d-item">Ghoulbane</span>, still the
+        best undead weapon at 30.</div>
+
+      <div class="d-tip">
+        <b>Ghoulbane</b>
+        <span class="d-l d-dim">NO TRADE&nbsp;·&nbsp;LORE&nbsp;·&nbsp;QUEST</span>
+        <span class="d-l">Slot: PRIMARY&nbsp;·&nbsp;1H Slashing&nbsp;·&nbsp;DMG 15 / Dly 34</span>
+        <span class="d-l d-eff">Effect: Dismiss Undead (Combat)</span>
+        <span class="d-l">Class: PAL&nbsp;·&nbsp;Race: ALL</span>
+        <span class="d-src">eqlwiki&nbsp;·&nbsp;Upper Guk&nbsp;·&nbsp;<span class="d-go">🗺 the froglok shin lord</span></span>
+      </div>
+
+      <svg class="d-map" viewBox="0 0 340 150">
+        <g stroke="#6b5cff" stroke-width="1.1" fill="none" opacity=".85">
+          <path d="M30 20 h70 v34 h48 v-22 h56 v52 h-40 v30 h-64 v-24 h-70 z"/>
+          <path d="M118 86 h44 v34 h72 v-26 h40"/>
+          <path d="M204 32 v-16 h60 v40"/>
+        </g>
+        <g stroke="#3ad17f" stroke-width="1.2" stroke-dasharray="4 4" fill="none">
+          <path d="M46 108 L118 86 L204 62 L264 56"/>
+        </g>
+        <g class="d-pin">
+          <ellipse class="d-halo" cx="118" cy="86" rx="52" ry="12"/>
+          <text x="118" y="90" fill="#f4d585" font-size="11" font-weight="bold"
+                text-anchor="middle" font-family="Segoe UI,Arial">Froglok Shin Lord (30)</text>
+        </g>
+        <text x="286" y="140" fill="#7f7362" font-size="9" font-family="Segoe UI,Arial">Upper Guk</text>
+      </svg>
+
+      <span class="d-cur"></span>
+    </div>
+
     <p class="chiffres"><b>671</b> items with full stats · <b>197</b> named pins ·
     <b>22</b> annotated maps</p>
     <a class="go" href="/sites/">Try it on the guide →</a>
