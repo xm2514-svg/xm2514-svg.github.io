@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>EQ Legends Guide</title>
-<meta name="description" content="Free EverQuest Legends guides — item merging and Motes of Potential, annotated dungeon maps, named farm loops and loot tables. No ads, no paywall. English &amp; French.">
+<meta name="description" content="Free EverQuest Legends guides — hover any item for its stats, click the mob that drops it and the map opens on its pin. Item and spell upgrade calculators, 22 annotated dungeon maps, named farm loops and loot tables. No ads, no paywall. English, French, German &amp; Spanish.">
 <link rel="canonical" href="https://xm2514-svg.github.io/">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/icon_32.png">
@@ -13,7 +13,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="EQ Legends Guide">
 <meta property="og:title" content="EQ Legends Guide">
-<meta property="og:description" content="Free EverQuest Legends guides — item merging, motes, annotated dungeon maps, named farm loops and loot tables.">
+<meta property="og:description" content="Hover any item for its stats, click the mob that drops it and the map opens on its pin. Upgrade calculators, 22 annotated dungeon maps, named farm loops and loot tables.">
 <meta property="og:url" content="https://xm2514-svg.github.io/">
 <meta property="og:image" content="https://xm2514-svg.github.io/sites/og-image.jpg">
 <script type="application/ld+json">
@@ -21,8 +21,8 @@
 "name":"EQ Legends Guide",
 "alternateName":"EQL Guide",
 "url":"https://xm2514-svg.github.io/",
-"description":"Free EverQuest Legends guides — item merging, motes, annotated dungeon maps, named farm loops and loot tables.",
-"inLanguage":["en","fr"],
+"description":"Free EverQuest Legends guides — item stats on hover, one click to the map pin of the mob that drops it, upgrade calculators, 22 annotated dungeon maps, named farm loops and loot tables.",
+"inLanguage":["en","fr","de","es"],
 "publisher":{"@type":"Person","name":"Keplerdust"}}
 </script>
 <style>
@@ -42,6 +42,13 @@
     text-decoration:none;border-radius:7px;padding:11px 20px;font-size:15.5px;
     box-shadow:0 0 14px rgba(200,168,58,.3)}
   .go:hover{background:var(--gold2)}
+  .go.alt{background:transparent;color:var(--gold2);border:1px solid var(--gold);
+    box-shadow:none;margin-left:10px}
+  .go.alt:hover{background:rgba(200,168,58,.12)}
+  .feature{border-color:var(--gold);border-left-width:4px;
+    background:linear-gradient(180deg,#20180c,#171310)}
+  .ex{border-bottom:1px dotted var(--gold);color:var(--gold2)}
+  .chiffres{color:var(--dim);font-size:14px}
   ul{margin:10px 0 0;padding-left:20px;color:#d8cdba;font-size:15px}
   li{margin:6px 0}
   b{color:var(--gold2)}
@@ -55,12 +62,26 @@
 
   <img class="icon" src="/icon_180.png" alt="EQ Legends Guide">
   <h1>EQ Legends Guide</h1>
-  <div class="sub">Free guides for EverQuest Legends · no ads, no paywall · English &amp; French</div>
+  <div class="sub">Free guides for EverQuest Legends · no ads, no paywall · English · Français · Deutsch · Español</div>
+
+  <div class="card feature">
+    <h2>Not a wiki — the loot answers back</h2>
+    <p>Every piece of equipment in the guide is live. <b>Hover an item</b> and its full stats
+    open where you are reading — slot, AC, resists, effect, class and race. In that tooltip,
+    <b>the mob that drops it is a link</b>: one click and the dungeon map opens full screen,
+    scrolled to its pin, pulsing.</p>
+    <p>No second tab, no search, no going back. You read <span class="ex">Ghoulbane</span>,
+    you see its 15/34 and its Dismiss Undead, you click <i>the froglok shin lord</i>, and you
+    are looking at the room he stands in.</p>
+    <p class="chiffres"><b>671</b> items with full stats · <b>197</b> named pins ·
+    <b>22</b> annotated maps</p>
+    <a class="go" href="/sites/">Try it on the guide →</a>
+  </div>
 
   <div class="card">
     <h2>Ultimate Paladin / Monk / Shaman Guide — level 1 to 50</h2>
     <p>A complete trio guide built while playing: how <b>item merging and Motes of Potential</b>
-    actually work, <b>8 annotated dungeon maps</b> with entrances, traps, drop-offs and the full
+    actually work, <b>22 annotated dungeon maps</b> with entrances, traps, drop-offs and the full
     Unrest key chain, named farm loops with exact <code>/loc</code> coordinates, and a complete
     loot database.</p>
     <p>It also covers the Legends systems that break classic EverQuest habits — the level 11
@@ -70,10 +91,19 @@
   </div>
 
   <div class="card">
+    <h2>The two upgrade calculators, +1 to +10</h2>
+    <p>Pick any of the <b>11 069 items</b> or <b>2 039 spells</b> in the game and read what each
+    tier actually gives — measured in game, not copied from a wiki. The merge cost is there too:
+    what a duplicate is worth against a mote, and where +8 stops being worth it.</p>
+    <a class="go" href="/sites/item-upgrades/">Item calculator →</a>
+    <a class="go alt" href="/sites/spell-upgrades/">Spell calculator →</a>
+  </div>
+
+  <div class="card">
     <h2>What is inside</h2>
     <ul>
       <li>Level-by-level route from 1 to 50, one table to scan</li>
-      <li>Befallen · Najena · Lower Guk · the five floors of Unrest, mapped and annotated</li>
+      <li>Befallen · Najena · Guk · The Hole · Plane of Fear, Hate and Sky · the five rooms of the Unrest key chain, mapped and annotated</li>
       <li>Named database with locations, levels, loot and how each camp actually behaves</li>
       <li>Trio best-in-slot, strategy, money making, raid preparation and endgame</li>
       <li>Chapter 11 — the Legends systems, written for players coming from P99 or TLP</li>
